@@ -27,7 +27,9 @@
         <S> 1 </S>
         <patrones>
             <patron codigo="cod31">WBBBB</patron>
-        <patron codigo="cod32">BBBWW</patron>
+            <patron codigo="cod32">BBBWW</patron>
+            <patron codigo="cod33">BBBWW</patron>
+            <patron codigo="cod34">BBBWW</patron>
         </patrones>
     </piso>
 </pisosArtesanales>

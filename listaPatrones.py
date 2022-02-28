@@ -23,11 +23,14 @@ class listaPatrones:
             if tmp.cod == c:
                 return tmp
             tmp = tmp.getSiguiente()
+
+    def size(self):
+        return self.size
         
     def mostrarPatrones(self):
         tmp = self.primero
         for i in range(self.size):
-            print(i,'Codigo:', tmp.getCodigo(), tmp.getPatron())
+            print("Patrón ",(i+1),": ", tmp.getCodigo(), " - ", tmp.getPatron())
             tmp = tmp.getSiguiente()
     
     def diferenteChar(self, patronDestino):

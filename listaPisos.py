@@ -20,5 +20,5 @@ class listaPisos():
     def mostrarPisos(self):
         tmp = self.primero
         for i in range(self.size):
-            print(i, 'Nombre:', tmp.getNombre(), 'Patrones: ', tmp.getPatron())
+            print('Piso #', i, ": ", tmp.getNombre(), '; número de patrones disponibles: ', str(tmp.patrones.size))
             tmp = tmp.getSiguiente()

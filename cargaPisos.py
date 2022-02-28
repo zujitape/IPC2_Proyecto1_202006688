@@ -1,7 +1,7 @@
-from curses.ascii import ETB
 from xml.dom import minidom
-import xml.etree.ElementTree as ET
 from listaPisos import listaPisos
+
+ListaPisos = listaPisos()
 
 class cargarPisos:
     def __init__(self):
@@ -10,9 +10,28 @@ class cargarPisos:
     def MiniDom(ruta):
         mydoc = minidom.parse(ruta)
         piso = mydoc.getElementsByTagName('piso')
-        print(piso)
+        for p in piso:
+            nombre = p.attributes['nombre'].value
+            nC = cargarPisos.getFirst('C', p)
+            nF = cargarPisos.getFirst('R', p)
+            pS = float(cargarPisos.getFirst('S', p))
+            pF = float(cargarPisos.getFirst('F', p))
+            
+            nuevoPiso = ListaPisos.insertarPiso(nombre, nF, nC, pS, pF)
+            
+            print(' \nSe insertó el piso ',nuevoPiso.getNombre())
 
-    def elementTree(ruta):
-        tree = ET.parse(ruta)
-        raiz = tree.getroot()
-        print(raiz)
+            patrones = p.getElementsByTagName('patron')
+            for patron in patrones:
+                cod = patron.attributes['codigo'].value
+                cadena = patron.firstChild.data
+                nuevoPiso.patrones.insertarPatron(cod, cadena)
+
+            nuevoPiso.patrones.mostrarPatrones()
+
+    def getFirst(char, data):
+        element = data.getElementsByTagName(char)
+        for e in element:
+            newElement = e.firstChild.data
+        return newElement
+        
