@@ -1,4 +1,6 @@
 from nodoCelda import Celda
+from graphviz import Digraph, dot
+from os import startfile, system
 
 class listaCeldas:
     def __init__(self,):
@@ -6,8 +8,8 @@ class listaCeldas:
         self.ultimo = None
         self.size = 0 
 
-    def insertarAlFinal(self, f, c, color, i):
-        nuevaCelda = Celda(f, c, color, i)
+    def insertarAlFinal(self, f, c, color):
+        nuevaCelda = Celda(f, c, color)
         self.size += 1
         if self.primero == None:
             self.primero = nuevaCelda
@@ -21,6 +23,17 @@ class listaCeldas:
 
     def mostrarCeldas(self):
         tmp = self.primero
-        while tmp.siguiente != None:
-            print("(" + tmp.fila + "," + tmp.columna + ") - > " + tmp.color)
+        for i in range(self.size):
+            print("(",tmp.fila, ",", tmp.columna, ") - > ", tmp.color)
             tmp = tmp.siguiente
+
+    def reporte(self, patron):
+        name = "graphviz"
+        with open(name + ".dot", "w") as dot:
+            dot.write('digraph Patrón de piso{\n')
+
+
+        startfile("graphviz.png")
+        startfile("graphviz.pdf")
+
+    

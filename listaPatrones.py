@@ -20,7 +20,8 @@ class listaPatrones:
     def buscarPatron(self, c):
         tmp = self.primero
         while tmp is not None:
-            if tmp.cod == c:
+            if tmp.codigo == c:
+                print(tmp.patron)
                 return tmp
             tmp = tmp.getSiguiente()
 
@@ -39,4 +40,7 @@ class listaPatrones:
             if patronInicial[i] != patronDestino[i]:
                 index = patronInicial.index()
         return index
+    
+    def retornarPrimerPatron(self):
+        return self.primero.getPatron()
     

@@ -20,5 +20,15 @@ class listaPisos():
     def mostrarPisos(self):
         tmp = self.primero
         for i in range(self.size):
-            print('Piso #', i, ": ", tmp.getNombre(), '; número de patrones disponibles: ', str(tmp.patrones.size))
+            print((i+1), ". ", tmp.getNombre(), '; número de patrones disponibles: ', str(tmp.patrones.size))
             tmp = tmp.getSiguiente()
+    
+    
+        
+    def buscarPiso(self, name):
+        tmp = self.primero
+        while tmp is not None:
+            if tmp.nombre == name:
+                return tmp
+            tmp = tmp.getSiguiente()
+    

@@ -1,9 +1,8 @@
 class Celda():
-    def __init__(self, fila, columna, color, index):
+    def __init__(self, fila, columna, color):
         self.fila = fila 
         self.columna = columna 
         self.color = color 
-        self.index = index
         self.siguiente = None
         self.anterior = None
 
