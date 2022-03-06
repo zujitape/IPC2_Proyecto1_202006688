@@ -60,7 +60,6 @@ def MiniDom(ruta):
         iFila = 1
         iColumna = 1
         maxColumnas = nC
-        maxFilas = nF
         i = 0
         while i <len(cadenaI):
             if iColumna <= maxColumnas:
@@ -113,7 +112,7 @@ while not salir:
 
 
                 print("\n 1. Cambiar patrones. \n 2. Imprimir patrón. \n 3. Regresar")
-                optPiso = seleccionarOpt("Seleccione la acción que quiere realizar: ")
+                optPiso = seleccionarOpt("\nSeleccione la acción que quiere realizar: ")
                 
 
                 while not salirPisos:
@@ -128,8 +127,12 @@ while not salir:
                         piso.patrones.buscarPatron(codigo)
 
                     elif optPiso == 2:
-                        print("a")
-                        salirPisos = True
+                            print('\n' + piso.nombre)
+                            piso.celdas.mostrarCeldas()
+                            piso.celdas.reporte(piso.nColumnas, piso.nFilas, piso.nombre)
+                            print("\nReporte generado correctamente!")
+                            break
+
                         
                     elif optPiso == 3:
                         salirPisos = True

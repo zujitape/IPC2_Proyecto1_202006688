@@ -41,6 +41,3 @@ class listaPatrones:
                 index = patronInicial.index()
         return index
     
-    def retornarPrimerPatron(self):
-        return self.primero.getPatron()
-    

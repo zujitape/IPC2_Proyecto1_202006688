@@ -24,4 +24,4 @@ class Piso():
     def getPatron(self):
         return self.patrones 
     
-#Jalar el primer elemento de la lista de patrones y con ese valor de color, asignarlo a una nueva celda que se cree.
+

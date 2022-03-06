@@ -24,7 +24,7 @@ class Celda():
     def getFila(self):
         return self.fila
     
-    def getRow(self):
+    def getColumna(self):
         return self.columna
 
     def setColor(self, color):
