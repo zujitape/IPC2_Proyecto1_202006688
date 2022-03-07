@@ -29,4 +29,11 @@ class listaPisos():
             if tmp.nombre == name:
                 return tmp
             tmp = tmp.getSiguiente()
+
+    def buscarPatronPiso(self, name):
+        tmp = self.primero
+        while tmp is not None:
+            if tmp.nombre == name:
+                return tmp.getPatron()
+            tmp = tmp.getSiguiente()
     

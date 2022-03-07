@@ -21,7 +21,7 @@ class listaPatrones:
         tmp = self.primero
         while tmp is not None:
             if tmp.codigo == c:
-                print(tmp.patron)
+                print("Nuevo patrón para el piso: ", tmp.patron)
                 return tmp
             tmp = tmp.getSiguiente()
 
@@ -34,10 +34,14 @@ class listaPatrones:
             print("Patrón ",(i+1),": ", tmp.getCodigo(), " - ", tmp.getPatron())
             tmp = tmp.getSiguiente()
     
-    def diferenteChar(self, patronDestino):
-        patronInicial = self.primero.getPatron()
-        for i in patronInicial:
-            if patronInicial[i] != patronDestino[i]:
-                index = patronInicial.index()
-        return index
+    def diferenteChar(self, patronInicial, patronDestino): 
+        i = 0 
+        iDiferentes = 0 
+        for letraI in patronInicial: 
+            if letraI == patronDestino[i]: 
+                pass 
+            else: 
+                i+=1 
+                iDiferentes +=1 
+        print("No. de cambios necesarios: ", iDiferentes)
     

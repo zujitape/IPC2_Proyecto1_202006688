@@ -1,6 +1,6 @@
 from tkinter.filedialog import askopenfilename
 import pathlib
-import os, sys, time
+import time
 from xml.dom import minidom
 from listaPisos import listaPisos
 
@@ -96,11 +96,12 @@ while not salir:
         try:
             print("\nLista de pisos disponibles: ")
             ListaPisos.mostrarPisos()
+            
         except:
             print("¿Ya cargó un archivo al sistema?")
 
     elif opcion == 3:
-            name = input("Ingrese el nombre del piso que manejará: ")
+            name = input("\nIngrese el nombre del piso que manejará: ")
             piso = ListaPisos.buscarPiso(name)
 
             if piso == None:
@@ -111,28 +112,29 @@ while not salir:
                 piso.celdas.mostrarCeldas()
 
 
-                print("\n 1. Cambiar patrones. \n 2. Imprimir patrón. \n 3. Regresar")
+                print("\n 1. Imprimir patrón.  \n 2. Cambiar patrones. \n 3. Regresar")
                 optPiso = seleccionarOpt("\nSeleccione la acción que quiere realizar: ")
                 
 
                 while not salirPisos:
                     if optPiso == 1:
+                        print('\n' + piso.nombre)
+                        piso.celdas.mostrarCeldas()
+                        piso.celdas.reporte(piso.nColumnas, piso.nFilas, piso.nombre)
+                        print("\nReporte generado correctamente!")
+                        break
+
+                    elif optPiso == 2:
                         print("\nPISO: ", piso.getNombre())
                         piso.celdas.mostrarCeldas()
                         print("\nLos patrones disponibles para cambiar este piso, son: ")
                         piso.patrones.mostrarPatrones()
 
-                        codigo = input("Cambiar piso al nuevo patrón de código: " )
+                        codigo = input("\nCambiar piso al nuevo patrón de código: " )
 
-                        piso.patrones.buscarPatron(codigo)
-
-                    elif optPiso == 2:
-                            print('\n' + piso.nombre)
-                            piso.celdas.mostrarCeldas()
-                            piso.celdas.reporte(piso.nColumnas, piso.nFilas, piso.nombre)
-                            print("\nReporte generado correctamente!")
-                            break
-
+                        patronFinal = piso.patrones.buscarPatron(codigo)
+                        piso.celdas.reporteFinal(piso.nColumnas, piso.nFilas, piso.nombre, patronFinal.getPatron())
+                        break
                         
                     elif optPiso == 3:
                         salirPisos = True
